@@ -1,11 +1,31 @@
+# Stemaa Personal Website
 
-  # Personal Page with Contact Form
+A minimalist personal website with contact form built with React, TypeScript, and Vite.
 
-  This is a code bundle for Personal Page with Contact Form. The original project is available at https://www.figma.com/design/99aMsRmOFkQJwNI0PiFSDl/Personal-Page-with-Contact-Form.
+## Features
 
-  ## Running the code
+- Minimalist design with dark theme
+- Contact form with smooth transitions
+- Responsive layout
+- Built with React 18 and TypeScript
 
-  Run `npm i` to install the dependencies.
+## Development
 
-  Run `npm run dev` to start the development server.
-  
+Install dependencies:
+```bash
+pnpm install
+```
+
+Start the development server:
+```bash
+pnpm dev
+```
+
+Build for production:
+```bash
+pnpm build
+```
+
+## Deployment
+
+This project is configured for deployment on Cloudflare Pages.

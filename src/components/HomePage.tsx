@@ -11,7 +11,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       <div className="text-center space-y-12">
         {/* Logo/Name */}
         <div className="space-y-8">
-          <div className="flex justify-center mb-8">
+          {/* <div className="flex justify-center mb-8">
             <Image
               src="/logo.png"
               alt="Stemaa Logo"
@@ -20,10 +20,18 @@ export function HomePage({ onNavigate }: HomePageProps) {
               className="invert opacity-40"
               priority
             />
+          </div> */}
+          <div className="flex items-center justify-center">
+            <h1 className="font-[family-name:var(--font-italiana)] tracking-[0.2em] uppercase text-neutral-100 text-3xl md:text-2xl lg:text-5xl">
+              ste
+            </h1>
+            <h1 className="font-[family-name:var(--font-italiana)] tracking-[0.1em] uppercase text-neutral-100 text-3xl md:text-2xl lg:text-5xl">
+              m
+            </h1>
+            <h1 className="font-[family-name:var(--font-italiana)] tracking-[-0.3em] uppercase text-neutral-100 text-3xl md:text-2xl lg:text-5xl">
+              aa
+            </h1>
           </div>
-          {/* <h1 className="tracking-[0.3em] uppercase text-neutral-400">
-            stemaa
-          </h1> */}
           <div className="h-px w-32 bg-gradient-to-r from-transparent via-neutral-600 to-transparent mx-auto" />
         </div>
 

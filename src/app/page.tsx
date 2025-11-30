@@ -1,8 +1,10 @@
-import { useState } from "react";
-import { HomePage } from "./components/HomePage";
-import { ContactPage } from "./components/ContactPage";
+"use client";
 
-export default function App() {
+import { useState } from "react";
+import { HomePage } from "@/components/HomePage";
+import { ContactPage } from "@/components/ContactPage";
+
+export default function Home() {
   const [currentPage, setCurrentPage] = useState<"home" | "contact">("home");
 
   return (

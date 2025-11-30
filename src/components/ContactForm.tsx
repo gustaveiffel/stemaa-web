@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Send } from "lucide-react";
 
@@ -7,15 +9,43 @@ export function ContactForm() {
     email: "",
     message: "",
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit");
+      }
+
+      setSubmitStatus("success");
       setFormData({ name: "", email: "", message: "" });
-    }, 3000);
+
+      setTimeout(() => {
+        setSubmitStatus("idle");
+      }, 5000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus("error");
+
+      setTimeout(() => {
+        setSubmitStatus("idle");
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -30,7 +60,7 @@ export function ContactForm() {
   return (
     <div className="relative">
       <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/50 to-neutral-800/30 blur-3xl -z-10" />
-      
+
       <form onSubmit={handleSubmit} className="space-y-8">
         <div className="space-y-6">
           {/* Name Field */}
@@ -48,7 +78,8 @@ export function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full bg-transparent border-b border-neutral-800 focus:border-neutral-400 transition-colors duration-300 pb-3 outline-none text-neutral-100 placeholder:text-neutral-700"
+              disabled={isSubmitting}
+              className="w-full bg-transparent border-b border-neutral-800 focus:border-neutral-400 transition-colors duration-300 pb-3 outline-none text-neutral-100 placeholder:text-neutral-700 disabled:opacity-50"
               placeholder="Your name"
             />
           </div>
@@ -68,7 +99,8 @@ export function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full bg-transparent border-b border-neutral-800 focus:border-neutral-400 transition-colors duration-300 pb-3 outline-none text-neutral-100 placeholder:text-neutral-700"
+              disabled={isSubmitting}
+              className="w-full bg-transparent border-b border-neutral-800 focus:border-neutral-400 transition-colors duration-300 pb-3 outline-none text-neutral-100 placeholder:text-neutral-700 disabled:opacity-50"
               placeholder="your@email.com"
             />
           </div>
@@ -87,8 +119,9 @@ export function ContactForm() {
               value={formData.message}
               onChange={handleChange}
               required
+              disabled={isSubmitting}
               rows={5}
-              className="w-full bg-transparent border-b border-neutral-800 focus:border-neutral-400 transition-colors duration-300 pb-3 outline-none text-neutral-100 placeholder:text-neutral-700 resize-none"
+              className="w-full bg-transparent border-b border-neutral-800 focus:border-neutral-400 transition-colors duration-300 pb-3 outline-none text-neutral-100 placeholder:text-neutral-700 resize-none disabled:opacity-50"
               placeholder="Your message..."
             />
           </div>
@@ -98,21 +131,26 @@ export function ContactForm() {
         <div className="flex justify-end">
           <button
             type="submit"
-            disabled={isSubmitted}
+            disabled={isSubmitting}
             className="group relative px-8 py-4 bg-neutral-100 text-neutral-950 tracking-widest uppercase text-sm hover:bg-neutral-200 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden"
           >
             <span className="relative z-10 flex items-center gap-3">
-              {isSubmitted ? "Sent" : "Send"}
+              {isSubmitting ? "Sending..." : submitStatus === "success" ? "Sent!" : "Send"}
               <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
           </button>
         </div>
 
-        {/* Success Message */}
-        {isSubmitted && (
-          <div className="text-center text-neutral-400 text-sm tracking-wider animate-fade-in">
-            Thank you for reaching out.
+        {/* Status Messages */}
+        {submitStatus === "success" && (
+          <div className="text-center text-green-400 text-sm tracking-wider">
+            Thank you for reaching out. We'll get back to you soon!
+          </div>
+        )}
+        {submitStatus === "error" && (
+          <div className="text-center text-red-400 text-sm tracking-wider">
+            Something went wrong. Please try again later.
           </div>
         )}
       </form>

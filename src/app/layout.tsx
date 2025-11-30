@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Stemaa",
   description: "S - T - E - M - A - A",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

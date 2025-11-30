@@ -39,3 +39,11 @@ lerna-debug.log*
 
 # Cloudflare
 .wrangler
+.dev.vars
+
+# Next.js
+.next
+out
+
+# Vercel
+.vercel

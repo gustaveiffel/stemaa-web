@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 interface HomePageProps {
   onNavigate: () => void;
@@ -10,9 +11,19 @@ export function HomePage({ onNavigate }: HomePageProps) {
       <div className="text-center space-y-12">
         {/* Logo/Name */}
         <div className="space-y-8">
-          <h1 className="tracking-[0.3em] uppercase text-neutral-400">
+          <div className="flex justify-center mb-8">
+            <Image
+              src="/logo.png"
+              alt="Stemaa Logo"
+              width={120}
+              height={120}
+              className="invert opacity-40"
+              priority
+            />
+          </div>
+          {/* <h1 className="tracking-[0.3em] uppercase text-neutral-400">
             stemaa
-          </h1>
+          </h1> */}
           <div className="h-px w-32 bg-gradient-to-r from-transparent via-neutral-600 to-transparent mx-auto" />
         </div>
 
@@ -26,11 +37,11 @@ export function HomePage({ onNavigate }: HomePageProps) {
         </button>
 
         {/* Footer */}
-        <div className="pt-16">
+        {/* <div className="pt-16">
           <p className="text-neutral-700 text-xs tracking-wider">
             {new Date().getFullYear()}
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

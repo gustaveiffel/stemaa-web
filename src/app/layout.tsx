@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Italiana } from "next/font/google";
+import { PostHogProvider } from "./providers";
 import "./globals.css";
 
 const italiana = Italiana({
@@ -24,7 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${italiana.variable} antialiased`}>
-        {children}
+        <PostHogProvider>
+          {children}
+        </PostHogProvider>
       </body>
     </html>
   );

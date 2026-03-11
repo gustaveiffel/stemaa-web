@@ -23,10 +23,14 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
           <div className="text-center space-y-6">
             <div className="inline-block">
               <h2 className="tracking-widest uppercase text-neutral-500 mb-4">
-                Get in touch
+                Let’s build the foundation for your next challenge
               </h2>
               <div className="h-px bg-gradient-to-r from-transparent via-neutral-700 to-transparent" />
             </div>
+            <p className="text-neutral-600 text-sm font-light max-w-md mx-auto">
+              Whether you are looking for technical engineering at scale or strategic product development, 
+              reach out to start the conversation.
+            </p>
           </div>
 
           {/* Contact Form */}

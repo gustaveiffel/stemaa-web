@@ -25,43 +25,46 @@ export function LegalPage({ onNavigate }: LegalPageProps) {
               Privacy Policy
             </h2>
             <div className="space-y-4 text-sm leading-relaxed">
-              <p>
+              {/* <p>
                 <strong>Effective Date:</strong> {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-              </p>
+              </p> */}
 
               <h3 className="text-neutral-100 font-semibold mt-6">1. Information We Collect</h3>
               <p>
-                When you submit the contact form on our website, we collect the following personal information:
+                When you use our website, we collect the following information:
               </p>
               <ul className="list-disc list-inside ml-4 space-y-2">
-                <li>Name</li>
-                <li>Email address</li>
-                <li>Message content</li>
-                <li>IP address (automatically collected)</li>
-                <li>Browser user agent (automatically collected)</li>
+                <li><strong>Contact Information:</strong> Name, email address, and message content (only when submitted via the contact form).</li>
+                <li><strong>Usage Data:</strong> We use PostHog to collect information about how you interact with our website. This includes page views, clicks, and session recordings to help us improve our services.</li>
+                <li><strong>Technical Data:</strong> IP address, browser user agent, and device information (automatically collected).</li>
               </ul>
 
               <h3 className="text-neutral-100 font-semibold mt-6">2. How We Use Your Information</h3>
               <p>
-                We use the information you provide to:
+                We use the information to:
               </p>
               <ul className="list-disc list-inside ml-4 space-y-2">
                 <li>Respond to your inquiries and messages</li>
+                <li>Analyze website usage and improve user experience</li>
                 <li>Communicate with you about our services</li>
-                <li>Prevent spam and abuse of our contact form</li>
+                <li>Prevent spam and abuse</li>
               </ul>
 
               <h3 className="text-neutral-100 font-semibold mt-6">3. Data Storage and Security</h3>
               <p>
-                Your data is stored securely in Cloudflare D1 databases with industry-standard encryption.
-                We implement appropriate technical and organizational measures to protect your personal information
-                against unauthorized access, alteration, disclosure, or destruction.
+                Your data is stored securely using:
+              </p>
+              <ul className="list-disc list-inside ml-4 space-y-2">
+                <li><strong>Cloudflare:</strong> For database storage (D1) and hosting.</li>
+                <li><strong>PostHog:</strong> For analytics and product usage data (stored on PostHog's secure infrastructure).</li>
+              </ul>
+              <p className="mt-4">
+                We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.
               </p>
 
               <h3 className="text-neutral-100 font-semibold mt-6">4. Data Retention</h3>
               <p>
-                We retain your contact form submissions for as long as necessary to respond to your inquiry
-                and for our legitimate business purposes. You may request deletion of your data at any time.
+                We retain your contact form submissions and usage data for as long as necessary to fulfill the purposes outlined in this policy or for our legitimate business purposes. You may request deletion of your data at any time.
               </p>
 
               <h3 className="text-neutral-100 font-semibold mt-6">5. Your Rights (GDPR)</h3>
@@ -79,9 +82,12 @@ export function LegalPage({ onNavigate }: LegalPageProps) {
 
               <h3 className="text-neutral-100 font-semibold mt-6">6. Third-Party Services</h3>
               <p>
-                Our website is hosted on Cloudflare Pages and uses Cloudflare D1 for data storage.
-                We do not share your personal information with any other third parties except as required by law.
+                We use the following third-party services:
               </p>
+              <ul className="list-disc list-inside ml-4 space-y-2">
+                <li><strong>Cloudflare:</strong> Hosting and data storage.</li>
+                <li><strong>PostHog:</strong> Product analytics and session recording.</li>
+              </ul>
 
               <h3 className="text-neutral-100 font-semibold mt-6">7. Cookies</h3>
               <p>

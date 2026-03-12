@@ -25,9 +25,9 @@ export function LegalPage({ onNavigate }: LegalPageProps) {
               Privacy Policy
             </h2>
             <div className="space-y-4 text-sm leading-relaxed">
-              {/* <p>
-                <strong>Effective Date:</strong> {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-              </p> */}
+              <p>
+                <strong>Effective Date:</strong> March 12, 2026
+              </p>
 
               <h3 className="text-neutral-100 font-semibold mt-6">1. Information We Collect</h3>
               <p>
@@ -35,11 +35,20 @@ export function LegalPage({ onNavigate }: LegalPageProps) {
               </p>
               <ul className="list-disc list-inside ml-4 space-y-2">
                 <li><strong>Contact Information:</strong> Name, email address, and message content (only when submitted via the contact form).</li>
-                <li><strong>Usage Data:</strong> We use PostHog to collect information about how you interact with our website. This includes page views, clicks, and session recordings to help us improve our services.</li>
+                <li><strong>Usage Data:</strong> We use PostHog (hosted in the EU) to collect anonymous information about how you interact with our website, such as page views and clicks. No cookies are used and no persistent user identifiers are stored.</li>
                 <li><strong>Technical Data:</strong> IP address, browser user agent, and device information (automatically collected).</li>
               </ul>
 
-              <h3 className="text-neutral-100 font-semibold mt-6">2. How We Use Your Information</h3>
+              <h3 className="text-neutral-100 font-semibold mt-6">2. Legal Basis for Processing</h3>
+              <p>
+                We process your personal data on the following legal bases (Article 6 GDPR):
+              </p>
+              <ul className="list-disc list-inside ml-4 space-y-2">
+                <li><strong>Consent (Art. 6(1)(a)):</strong> When you voluntarily submit information through the contact form.</li>
+                <li><strong>Legitimate Interest (Art. 6(1)(f)):</strong> For anonymous analytics to improve our website and services. We use PostHog in cookieless mode, meaning no personal identifiers are stored across sessions.</li>
+              </ul>
+
+              <h3 className="text-neutral-100 font-semibold mt-6">3. How We Use Your Information</h3>
               <p>
                 We use the information to:
               </p>
@@ -50,24 +59,28 @@ export function LegalPage({ onNavigate }: LegalPageProps) {
                 <li>Prevent spam and abuse</li>
               </ul>
 
-              <h3 className="text-neutral-100 font-semibold mt-6">3. Data Storage and Security</h3>
+              <h3 className="text-neutral-100 font-semibold mt-6">4. Data Storage and Security</h3>
               <p>
                 Your data is stored securely using:
               </p>
               <ul className="list-disc list-inside ml-4 space-y-2">
-                <li><strong>Cloudflare:</strong> For database storage (D1) and hosting.</li>
-                <li><strong>PostHog:</strong> For analytics and product usage data (stored on PostHog's secure infrastructure).</li>
+                <li><strong>Cloudflare:</strong> For database storage (D1) and hosting. Cloudflare is a US-based company operating under the EU-US Data Privacy Framework, with data processing compliant with standard contractual clauses (SCCs).</li>
+                <li><strong>PostHog:</strong> For anonymous analytics data, hosted on PostHog&apos;s EU infrastructure (Frankfurt, Germany).</li>
               </ul>
               <p className="mt-4">
                 We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.
               </p>
 
-              <h3 className="text-neutral-100 font-semibold mt-6">4. Data Retention</h3>
-              <p>
-                We retain your contact form submissions and usage data for as long as necessary to fulfill the purposes outlined in this policy or for our legitimate business purposes. You may request deletion of your data at any time.
+              <h3 className="text-neutral-100 font-semibold mt-6">5. Data Retention</h3>
+              <ul className="list-disc list-inside ml-4 space-y-2">
+                <li><strong>Contact form submissions:</strong> Retained for 2 years after the last exchange, then deleted.</li>
+                <li><strong>Analytics data:</strong> Anonymous usage data is retained for up to 24 months.</li>
+              </ul>
+              <p className="mt-2">
+                You may request deletion of your data at any time by contacting us.
               </p>
 
-              <h3 className="text-neutral-100 font-semibold mt-6">5. Your Rights (GDPR)</h3>
+              <h3 className="text-neutral-100 font-semibold mt-6">6. Your Rights (GDPR)</h3>
               <p>
                 Under the General Data Protection Regulation (GDPR), you have the following rights:
               </p>
@@ -79,38 +92,60 @@ export function LegalPage({ onNavigate }: LegalPageProps) {
                 <li><strong>Right to Data Portability:</strong> Request transfer of your data to another service</li>
                 <li><strong>Right to Object:</strong> Object to processing of your personal data</li>
               </ul>
+              <p className="mt-2">
+                You may also lodge a complaint with the French data protection authority (CNIL) at{" "}
+                <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" className="text-neutral-100 underline hover:text-white">cnil.fr</a>.
+              </p>
 
-              <h3 className="text-neutral-100 font-semibold mt-6">6. Third-Party Services</h3>
+              <h3 className="text-neutral-100 font-semibold mt-6">7. Third-Party Services</h3>
               <p>
                 We use the following third-party services:
               </p>
               <ul className="list-disc list-inside ml-4 space-y-2">
-                <li><strong>Cloudflare:</strong> Hosting and data storage.</li>
-                <li><strong>PostHog:</strong> Product analytics and session recording.</li>
+                <li><strong>Cloudflare, Inc.</strong> — Hosting, CDN, and data storage.</li>
+                <li><strong>PostHog, Inc.</strong> — Anonymous website analytics (EU-hosted, cookieless).</li>
               </ul>
 
-              <h3 className="text-neutral-100 font-semibold mt-6">7. Cookies</h3>
+              <h3 className="text-neutral-100 font-semibold mt-6">8. Cookies</h3>
               <p>
-                This website does not use cookies for tracking purposes. However, essential technical cookies
+                This website does not use cookies for tracking or analytics purposes. PostHog operates in
+                cookieless mode, meaning no tracking cookies are set on your device. Essential technical cookies
                 may be used by our hosting provider (Cloudflare) for security and performance purposes.
               </p>
 
-              <h3 className="text-neutral-100 font-semibold mt-6">8. Contact Us</h3>
+              <h3 className="text-neutral-100 font-semibold mt-6">9. Contact Us</h3>
               <p>
                 To exercise any of your rights or if you have questions about this privacy policy,
-                please contact us using the contact form on this website.
+                please contact us at{" "}
+                <a href="mailto:contact@stemaa.com" className="text-neutral-100 underline hover:text-white">contact@stemaa.com</a>{" "}
+                or via the contact form on this website.
               </p>
             </div>
           </section>
 
-          {/* Legal Notice */}
+          {/* Legal Notice (Mentions Légales — LCEN) */}
           <section>
             <h2 className="text-2xl font-[family-name:var(--font-italiana)] uppercase tracking-wider text-neutral-100 mb-6">
               Legal Notice
             </h2>
-            <div className="text-xs space-y-2 text-neutral-500 font-light tracking-widest uppercase leading-relaxed">
-              <p>STEMAA — SIREN 994 779 692 (RCS MARSEILLE)</p>
-              <p>Infrastructure: Cloudflare, Inc.</p>
+            <div className="space-y-4 text-sm leading-relaxed">
+              <h3 className="text-neutral-100 font-semibold">Publisher</h3>
+              <p>
+                STEMAA — SASU (Société par actions simplifiée unipersonnelle)<br />
+                Share capital: €1,000<br />
+                SIRET: 994 779 692 00015 — RCS Marseille<br />
+                23 rue de Crémone, 13006 Marseille, France<br />
+                Publication Director: Augustin Amann, President<br />
+                Email:{" "}
+                <a href="mailto:contact@stemaa.com" className="text-neutral-100 underline hover:text-white">contact@stemaa.com</a>
+              </p>
+
+              <h3 className="text-neutral-100 font-semibold mt-6">Hosting</h3>
+              <p>
+                Cloudflare, Inc.<br />
+                101 Townsend St, San Francisco, CA 94107, United States<br />
+                <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer" className="text-neutral-100 underline hover:text-white">cloudflare.com</a>
+              </p>
             </div>
           </section>
 

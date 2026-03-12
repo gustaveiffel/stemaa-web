@@ -108,30 +108,9 @@ export function LegalPage({ onNavigate }: LegalPageProps) {
             <h2 className="text-2xl font-[family-name:var(--font-italiana)] uppercase tracking-wider text-neutral-100 mb-6">
               Legal Notice
             </h2>
-            <div className="space-y-4 text-sm leading-relaxed">
-              <h3 className="text-neutral-100 font-semibold">Website Owner</h3>
-              {/* <p>
-                STEMAA<br />
-                [ Address]<br />
-                [Postal Code]<br />
-                [Country]
-              </p> */}
-
-              <h3 className="text-neutral-100 font-semibold mt-6">Contact</h3>
-              <p>
-                STEMAA<br />
-                Email: contact@stemaa.com<br />
-                Website: stemaa.com
-              </p>
-
-              <h3 className="text-neutral-100 font-semibold mt-6">Hosting</h3>
-              <p>
-                This website is hosted by:<br />
-                Cloudflare, Inc.<br />
-                101 Townsend St.<br />
-                San Francisco, CA 94107<br />
-                United States
-              </p>
+            <div className="text-xs space-y-2 text-neutral-500 font-light tracking-widest uppercase leading-relaxed">
+              <p>STEMAA — SIREN 994 779 692 (RCS MARSEILLE)</p>
+              <p>Infrastructure: Cloudflare, Inc.</p>
             </div>
           </section>
 
